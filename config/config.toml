@@ -1,0 +1,63 @@
+[app]
+name = "ATLAS"
+version = "v6.0"
+timezone_ui = "America/Sao_Paulo"
+timezone_internal = "UTC"
+
+[data]
+min_rows = 30
+trading_days = 252
+
+[cache]
+ttl_prices_sec = 900
+ttl_indicators_sec = 600
+ttl_market_state_sec = 300
+
+[cost]
+max_cost_block_bps = 20
+
+[risk]
+ruin_threshold_pct = 5.0
+ruin_drawdown_limit = -0.50
+default_capital = 10000.0
+max_daily_loss_pct = 2.5
+risk_per_trade_cap_pct = 2.0
+
+[market_hours]
+timezone = "America/Sao_Paulo"
+open = "10:00"
+close = "17:00"
+auction_pre_open_start = "09:45"
+auction_pre_open_end = "10:00"
+auction_close_start = "17:00"
+auction_close_end = "17:10"
+
+[profiles.Trend]
+risk_cap_pct = 2.0
+stop_atr = 2.0
+target_r = 2.2
+strict_vol = 60.0
+strict_dd_pct = -28.0
+max_cost_block_bps = 20
+
+[profiles.MeanReversion]
+risk_cap_pct = 2.0
+stop_atr = 1.8
+target_r = 2.0
+strict_vol = 55.0
+strict_dd_pct = -25.0
+max_cost_block_bps = 20
+
+[profiles.Defensive]
+risk_cap_pct = 1.0
+stop_atr = 2.2
+target_r = 1.6
+strict_vol = 35.0
+strict_dd_pct = -12.0
+max_cost_block_bps = 15
+
+[openai]
+enabled = true
+model = "gpt-5-mini"
+timeout_sec = 15
+max_output_tokens = 600
